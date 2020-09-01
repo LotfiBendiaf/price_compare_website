@@ -105,25 +105,29 @@ def results(request):
         else:
             post_image_url = "https://piotrkowalski.pw/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png"
 
-        craigslist_price = post_price
+        craigslist_price = '$' + str(float(post_price.split('$')[1]))
 
         if post_price.split('$')[1] == '0':
             post_price = '$1'
 
-        delta_price = int(ceil(int(post_price.split('$')[1])/10))
-        amazon_price = '$' + str(int(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(int(post_price.split('$')[1])/10))
-        ebay_price = '$' + str(int(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(int(post_price.split('$')[1])/10))
-        alibaba_price = '$' + str(int(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(int(post_price.split('$')[1])/10))
-        fnac_price = '$' + str(int(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(int(post_price.split('$')[1])/10))
-        flipkart_price = '$' + str(int(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
 
-        best_price = min(craigslist_price, amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price)
+        delta_price = int(ceil(float(post_price.split('$')[1])/10))
+        amazon_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1])/10))
+        ebay_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1])/10))
+        alibaba_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1])/10))
+        fnac_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1])/10))
+        flipkart_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+
+        best_price = '$' + str(min(float(craigslist_price.split('$')[1]), float(amazon_price.split('$')[1]), float(ebay_price.split('$')[1]), float(alibaba_price.split('$')[1]), float(fnac_price.split('$')[1]), float(flipkart_price.split('$')[1])))
 
         prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
+
+        print(prices_list)
+        print('The best price : ', best_price)
 
         final_postings.append(
             (post_titles, post_url, 

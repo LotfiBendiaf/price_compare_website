@@ -24,6 +24,16 @@ p, h1, h2, h3, h4, h5, h6 strong{
 	font-family: var(--secondaryFont);
 }
 
+li{
+    display: flex;
+    flex-direction: row;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     
     background-image: 
@@ -77,52 +87,58 @@ body{
 
 #post{
     width: 100%; 
-    border-radius: 7px; 
+    border-radius: 10px; 
     background-color: rgb(242, 244, 255);
 }
 #post-card{
     object-fit: cover;
     justify-content: center;
+    width: fit-content;
 }
 
 .price-wrapper{
     display: grid;
 	grid-template-columns: repeat(auto-fit, 320px);
-	justify-content: center;
-	padding-bottom: 20px;
-	gap:10px;
 }
 
-#prices-section{
-    display: grid;
-	justify-content: left;
+.prices-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.price-component{
+    color: darkorange;
+}
+
+.price-component:hover{
+    color: rgb(235, 221, 37);
 }
 
 .best-price{
     font-weight: bold;
-    color: darkgreen;
     justify-content: center;
+    align-content: center;
+    height: 100px;
+    width: 100px;
 }
 
 .icon-website{
+
+    width: 65px;
     height: 30px;
-    width: 100px;
-    background-size: 80%;
+    background-size: auto;
     margin: 3px 50px 3px 0 ;
     object-fit: cover;
 
 }
 
-ul{
-    display: flex;
-    flex-direction: column;
-}
-
-li{
-    display: flex;
-    flex-direction: row;
-}
-
 #post-image{
     border-radius: 7px;
+}
+
+@media screen and (max-width : 600px){
+    .nav-wrapper .prices-section{
+        transform: scale(0.7);
+    }
 }
