@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="search-result" class="container">
+    <h3>Results for : {{ search | title }}</h3>
+</div>
+
+<div class="row">
+    {% for post in final_postings %}
+    <div id="post-section" class="col s6 m7">
+        <h4 class="header">{{ post.0 }}</h4>
+        <div id="post" class="card horizontal">
+            <div id="post-image" class="card-image">
+                <img src="{{ post.8 }}">
+            </div>
+            <div class="card-stacked">
+                <div id="post-card" class="card-content">
+                    <p>{{ post.0 }}</p>
+                </div>
+                <div class="price-wrapper">
+                    <div id="prices-section" class="card-action">
+                        <ul>
+                            <a href="{{ post.11 }}">
+                                <li><img class="icon-website" src="{% static "images/amazon.png"%} "> Price :
+                                    {{ post.3 }}</li>
+                            </a>
+                            <a href="{{ post.10 }}">
+                                <li><img class="icon-website" src="{% static "images/craigslist.png"%} "> Price :
+                                    {{ post.2 }}</li>
+                            </a>
+                            <a href="{{ post.13 }}">
+                                <li><img class="icon-website" src="{% static "images/ebay1.png"%} "> Price :
+                                    {{ post.4 }}</li>
+                            </a>
+                            <a href="{{ post.12 }}">
+                                <li><img class="icon-website" src="{% static "images/alibaba.png"%} "> Price :
+                                    {{ post.5 }}</li>
+                            </a>
+                            <a href="{{ post.14 }}">
+                                <li><img class="icon-website" src="{% static "images/fnac.png"%} "> Price :
+                                    {{ post.6 }}</li>
+                            </a>
+                            <a href="{{ post.15 }}">
+                                <li><img class="icon-website" src="{% static "images/flipkart.png"%} "> Price :
+                                    {{ post.7 }}</li>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <li><img class="best-price" src="{% static "images/best_price.png"%} "><p> Best price : </p>
+                            {{ post.9 }}</li>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

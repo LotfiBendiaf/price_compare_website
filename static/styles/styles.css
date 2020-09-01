@@ -1,0 +1,128 @@
+:root{
+	--mainColor:#e8e8e8;
+	--secondaryColor:#fff;
+
+	--mainText:#474857;
+	--secondaryText:#4b5156;
+
+	--borderColor:#bdb5b5;
+	--linkColor:#63c3db;
+	--shadowColor:#f2e5d9;
+
+	--defaultFont:'Montserrat', sans-serif;
+	--mainTitleFont:'Courier Prime', monospace;
+	--secondaryFont:'Baloo 2', cursive;
+
+	--themeDotBorder: #24292e ;
+	--previewBg: rgb(212, 212, 212, 0.6);
+
+	--buttonColor: black;
+}
+
+p, h1, h2, h3, h4, h5, h6 strong{
+	color: var(--mainText);
+	font-family: var(--secondaryFont);
+}
+
+body{
+    
+    background-image: 
+    linear-gradient(to bottom,rgb(255, 255, 255, 0), #ffffff),
+    url("/static/images/bg5.jpg");
+    object-fit: cover;
+}
+
+#search-result{
+    text-align: center;
+    border-radius: 7px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+}
+
+.search-section{
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+#search-bar{
+    border-radius: 7px 7px 0 0;
+    padding-left: 10px;
+}
+
+#search-bar::placeholder{
+    color: darkolivegreen;
+}
+
+.waves-light :hover{
+    background-color: rgb(197, 255, 238);
+    color: #24292e;
+    
+}
+
+#result-section{
+    scroll-margin-top: 0 auto;
+}
+
+#post-section{
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#post-section :hover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#post{
+    width: 100%; 
+    border-radius: 7px; 
+    background-color: rgb(242, 244, 255);
+}
+#post-card{
+    object-fit: cover;
+    justify-content: center;
+}
+
+.price-wrapper{
+    display: grid;
+	grid-template-columns: repeat(auto-fit, 320px);
+	justify-content: center;
+	padding-bottom: 20px;
+	gap:10px;
+}
+
+#prices-section{
+    display: grid;
+	justify-content: left;
+}
+
+.best-price{
+    font-weight: bold;
+    color: darkgreen;
+    justify-content: center;
+}
+
+.icon-website{
+    height: 30px;
+    width: 100px;
+    background-size: 80%;
+    margin: 3px 50px 3px 0 ;
+    object-fit: cover;
+
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+}
+
+#post-image{
+    border-radius: 7px;
+}
