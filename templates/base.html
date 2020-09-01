@@ -39,7 +39,7 @@
                 <input id="search-bar" type="text" name="search" placeholder="search">
                 <button class="btn waves-effect waves-light"
                     style="background-color: rgb(48, 18, 36, 0.7); border-radius: 10px;" type="submit"
-                    onmouseover="this.style.backgroundColor='rgb(0, 9, 59, 0.7)'"
+                    onmouseover="this.style.backgroundColor='rgba(0, 112, 65, 0.7)'"
                     onmouseout="this.style.backgroundColor='rgb(48, 18, 36, 0.7)'" name="action">Search
                     <i class="material-icons right">search</i>
                 </button>
@@ -50,14 +50,19 @@
 
         {% endblock content %}
 
+
+
+    </div>
+
+    <div class="footer-wrapper">
         <div id="footer-section" class="row">
             <div class="col s4">
                 <!-- Promo Content-->
                 <div class="center">
-                    <i class="large material-icons" style="color: rgb(78, 235, 170);">art_track</i>
-                    <h5>Modern and simple design</h5>
+                    <i class="large material-icons" style="color: rgb(78, 235, 170); height: 7rem;">art_track</i>
+                    <h5 style="color: seashell;">Modern and simple design</h5>
 
-                    <p class="light center"><b>We believe in a minimalistic approach and hence tried to make the website
+                    <p class="light center" style="color: seashell;"><b>We believe in a minimalistic approach and hence tried to make the website
                             as easy to use as possible while at the same time not compromising on it's
                             functionalitites.</b></p>
                 </div>
@@ -67,9 +72,9 @@
                 <!-- Promo Content-->
                 <div class="center">
                     <!--i class="large material-icons" style="color: rgb(137, 162, 241);">art_track</i-->
-                    <img src="{% static "images/icone1.jpg" %}" style="width: 14rem; height: 6rem; object-fit: cover;">
-                    <h5>Check international sites</h5>
-                    <p class="light center"><b>
+                    <img src="{% static "images/icone1.jpg" %}" style="width: 15rem; height: 7rem; object-fit: cover;">
+                    <h5 style="color: seashell;">Check international sites</h5>
+                    <p class="light center" style="color: seashell;"><b>
                             We have made the website in such a fashion
                             that you get the latest prices from both international as well as local sites
                     </p></b>
@@ -79,10 +84,10 @@
             <div class="col s4">
                 <!-- Promo Content-->
                 <div class="center">
-                    <i class="large material-icons" style="color: rgb(116, 117, 158);">add_shopping_cart</i>
-                    <h5>Search and compare</h5>
-                    <p class="light center"><b>the website is as easy as clicking the search Button
-                            and giving the name of the products you want to search for</b></p>
+                    <i class="large material-icons" style="color: rgb(116, 117, 158); height: 7rem;">add_shopping_cart</i>
+                    <h5 style="color: seashell;">Search and compare</h5>
+                    <p class="light center" style="color: seashell;"><b>the website is as easy as clicking the search button
+                            and giving the name of the products you want to search for with the best prices !</b></p>
                 </div>
             </div>
 
@@ -90,9 +95,6 @@
 
     </div>
 
-    <div class="parallax">
-        <img src="{% static "images/icone.jpg" %}" style="object-fit: cover; height: 400px; width: 100%;"
-            alt="Unsplashed background img 3"></div>
 
 
     <!-- Compiled and minified JavaScript -->

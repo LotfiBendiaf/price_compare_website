@@ -88,7 +88,8 @@ def results(request):
     #URL List
     urls_list = [final_craigslist_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url]
 
-    for post in post_listings[:5]:
+    #Data Process
+    for post in post_listings[:75]:
         post_titles = post.find(class_='result-title').text
         post_url = post.find('a').get('href')
 
@@ -107,10 +108,11 @@ def results(request):
 
         craigslist_price = '$' + str(float(post_price.split('$')[1]))
 
+        #Exceptions
         if post_price.split('$')[1] == '0':
             post_price = '$1'
 
-
+        #Retrieve prices
         delta_price = int(ceil(float(post_price.split('$')[1])/10))
         amazon_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1])/10))
@@ -125,9 +127,6 @@ def results(request):
         best_price = '$' + str(min(float(craigslist_price.split('$')[1]), float(amazon_price.split('$')[1]), float(ebay_price.split('$')[1]), float(alibaba_price.split('$')[1]), float(fnac_price.split('$')[1]), float(flipkart_price.split('$')[1])))
 
         prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
-
-        print(prices_list)
-        print('The best price : ', best_price)
 
         final_postings.append(
             (post_titles, post_url, 
