@@ -181,12 +181,10 @@ body{
 .footer-wrapper{
     background-image: url("/static/images/bg2.jpg");
     width: 100%;
-    height: 500px;
+    height: auto;
     padding: 15px;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+
 }
 
 #footer-section{
@@ -196,30 +194,57 @@ body{
     padding: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
 
 }
 
-#column-desc{
+.footer-column{
     transition: width 1s, height 1s, transform 1s;
+    padding: 30px;
 }
 
-#column-desc:hover{
+.footer-column:hover{
     transform: scale(1.2);
 }
 
 .footer-line{
     background-color: rgba(0, 0, 0, 0.7);
     margin: auto;
-    width: 20%;
+    max-width: auto;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
 
 }
 
-@media screen and (max-width : 600px){
-    .nav-wrapper .prices-section{
+@media only screen and (max-width: 800px){
+    .nav-wrapper{
+        transform: scale(0.7) ;
+    }
+    .brand-logo{
+        width: 100%;
+        justify-content: center;
+    }
+    #nav-mobile{
+        display: none;
+    }
+    nav{
+        padding: 0;
+    }
+    #main-intro{
+        transform: scale(0.7) ;
+    }
+    #secondary-intro{
+        transform: scale(0.7) ;
+    }
+    .form-button{
+        text-align: center;
+    }
+    #footer-section{
+        display: inline-flex;
+        flex-direction: column;
+    }
+    .icon-website{
         transform: scale(0.7);
     }
 }
