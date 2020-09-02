@@ -22,22 +22,28 @@
     <!--Nav bar-->
     <nav style="background-color:rgb(48, 18, 36, 0.7);">
         <div class="container nav-wrapper">
-            <a href="/" class="brand-logo">
-                <i class="large material-icons">monetization_on</i><b>My Price Check</b></a>
-            <ul id="nav-mobile" class="right">
-                <li><a href="/">Home</a><i class="material-icons">dehaze</i></li>
-            </ul>
+            <a href="/" class="brand-logo" style="display: flex; flex-direction: row;">
+                <img src="{% static "images/price_check3.png" %}" 
+                style="width: 45px; height: 45px; padding-top: 7px; margin: 10px;">
+                <b>My Price Check</b></a>
+            <div id="nav-mobile" class="right">
+                <a href="/" style="display: flex; flex-direction: row;">
+                    <b>Home</b>  <i class="material-icons" style="margin-left: 8px;">home</i></a>
+            </div>
         </div>
     </nav>
     <!--Banner-->
-    <img src="{% static "images/bg1.jpg" %}" style="width: 100%; height: 200px; object-fit: cover;"
+    <img src="{% static "images/bg1.jpg" %}" style="width: 100%; height: 200px; object-fit: cover; border-bottom: 10px solid rgb(48, 18, 36, 0.7)"
         alt="price_check_banner">
     <!--Site Title-->
+    <h1 class="container" style="text-align: center; font-weight: bold; margin-top: 30px; display: flex; flex-direction: row;">
+        A price comparator that does just what it says ! <img src="{% static "images/price_check3.png" %}" 
+        style="width: 60px; height: 60px; padding-top: 7px; margin: 10px;">
+    </h1>
     <div id="result-section" class="container">
-        <h1 style="text-align: center; font-weight: bold;">A price comparator that does just what it says!</h1>
-        <h5>Search products and compare prices</h5>
         <!--Search section-->
         <div class="search-section">
+            <h5>Search products, compare prices and pick the best one</h5>
             <form action="{% url 'results' %}" method="post">
                 {% csrf_token %}
                 <input id="search-bar" type="text" name="search" placeholder="search">
@@ -56,9 +62,9 @@
 
     </div>
     <!--Footer section-->
-    <div class="footer-wrapper">
+    <div class="footer-wrapper" style="border-top: 10px solid rgb(48, 18, 36, 0.7)">
         <div id="footer-section" class="row">
-            <div class="col s4">
+            <div class="col s4" id="column-desc">
                 <!-- Promo Content-->
                 <div class="center">
                     <i class="large material-icons" style="color: rgb(78, 235, 170); height: 7rem;">art_track</i>
@@ -70,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="col s4">
+            <div class="col s4" id="column-desc">
                 <!-- Promo Content-->
                 <div class="center">
                     <!--i class="large material-icons" style="color: rgb(137, 162, 241);">art_track</i-->
@@ -83,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="col s4">
+            <div class="col s4" id="column-desc">
                 <!-- Promo Content-->
                 <div class="center">
                     <i class="large material-icons" style="color: rgb(116, 117, 158); height: 7rem;">add_shopping_cart</i>
@@ -94,6 +100,10 @@
             </div>
 
         </div>
+        <p class="light center" style="color: seashell; padding-bottom: 0; display: flex; flex-direction: row; justify-content: center;">
+            <b style="display: flex; flex-direction: row;">My Price Check <img src="{% static "images/price_check3.png" %}" 
+                style="width: 25px; height: 25px; margin-left: 3px; margin-right: 3px;"> 2020 Inc</b></p>
+
 
     </div>
 

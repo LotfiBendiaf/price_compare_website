@@ -3,7 +3,11 @@
 
 {% block content %}
 <div id="search-result" class="container">
-    <h3>Results for : {{ search | title }}</h3>
+    {% if p_not_found %}
+        <h3>{{ p_not_found }}</h3>
+    {% else %}
+        <h3>Results for : {{ search | title }}</h3>
+    {% endif %}
 </div>
 
 <!--Results Section-->
@@ -13,65 +17,62 @@
     <div id="post-section" class="col s12 m7">
         <h4 class="header">{{ post.0 }}</h4>
         <div id="post" class="card horizontal">
-            <div class="card-image" style="margin: 3px;">
+            <div class="card-image" style="margin: 1px;">
                 <img src="{{ post.8 }}">
             </div>
             <div class="card-stacked">
-                <li>
+                <li style="border-bottom: 1px solid rgb(48, 18, 36); margin-left: 10px; margin-right: 10px;">
                     <p style="font-weight: bold; color: #4b5156; padding-left: 10px;">
                         Prices for :
                     <p style="font-weight: bold; color: seagreen; padding-left: 7px;">{{ post.0 }}</p>
                     </p>
-                    <hr>
                 </li>
                 <!--Prices section-->
                 <div class="prices-section">
                     <div style="padding-left: 10px; padding-right: 10px;">
-                        <hr>
                         <ul>
                             <a target="_blank" href="{{ post.11 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/amazon.png"%} ">
+                                        src="{% static "images/amazon_icon.png"%} ">
                                     {{ post.3 }}</li>
                             </a>
                             <a target="_blank" href="{{ post.10 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/craigslist.png"%} ">
+                                        src="{% static "images/craigslist_icon.png"%} ">
                                     {{ post.2 }}</li>
                             </a>
                             <a target="_blank" href="{{ post.13 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/ebay.png"%} ">
+                                        src="{% static "images/ebay_icon.png"%} ">
                                     {{ post.4 }}</li>
                             </a>
                             <a target="_blank" href="{{ post.12 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/alibaba.png"%} ">
+                                        src="{% static "images/alibaba_icon.png"%} ">
                                     {{ post.5 }}</li>
                             </a>
                             <a target="_blank" href="{{ post.14 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/fnac.png"%} ">
+                                        src="{% static "images/fnac_icon.png"%} ">
                                     {{ post.6 }}</li>
                             </a>
                             <a target="_blank" href="{{ post.15 }}">
                                 <li class="price-component"><img class="icon-website"
-                                        src="{% static "images/flipkart.png"%} ">
+                                        src="{% static "images/flipkart_icon.png"%} ">
                                     {{ post.7 }}</li>
                             </a>
                         </ul>
                     </div>
                     <!--Best Price section-->
                     <div style="padding-left: 10px; padding-right: 10px;">
-                        <hr>
                         <ul>
                             <li style="justify-content: center;">
-                                <img class="best-price" src="{% static "images/best_price.png"%} "> </li>
+                                <img class="best-price-image" src="{% static "images/best_price_icon.png"%} "> </li>
                             <li style="justify-content: center;">
                                 <p>Best price !</p>
                             </li>
                             <li style="justify-content: center; padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
-                                <p style="font-weight: bold; margin: 0; font-size: 40px; color: seagreen;">{{ post.9 }}</p>
+                                <p id="best-price">{{ post.9 }}</p>
                             </li>
                         </ul>
                     </div>

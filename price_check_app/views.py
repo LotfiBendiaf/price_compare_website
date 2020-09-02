@@ -41,6 +41,7 @@ def results(request):
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
     final_fnac_url = FNAC_URL.format(quote_plus(search))
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
+    final_flipkart_url = FLIPKART_URL.format(quote_plus(search))
     #Amazon Data
     #amazon_postings = []
     """final_amazon_url = AMAZON_URL.format(quote_plus(search))
@@ -91,9 +92,11 @@ def results(request):
 
     #URL List
     #urls_list = [final_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url]
-
+    p_not_found = ''
+    if post_listings == []:
+        p_not_found = 'Sorry there is no products for you your search !'
     #Data Process
-    for post in post_listings[:75]:
+    for post in post_listings:
         post_titles = post.find(class_='result-title').text
         post_url = post.find('a').get('href')
 
@@ -109,25 +112,26 @@ def results(request):
 
         else:
             post_image_url = "https://ultravires.ca/wp/wp-content/uploads/2018/03/Then-and-Now_-no-image-found.jpg"
-        craigslist_price = '$' + str(float(post_price.split('$')[1]))
+
+        craigslist_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')))
 
         #Exceptions
         if post_price.split('$')[1] == '0':
             post_price = '$1'
 
         #Retrieve prices
-        delta_price = int(ceil(float(post_price.split('$')[1])/10))
-        amazon_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1])/10))
-        ebay_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1])/10))
-        alibaba_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1])/10))
-        fnac_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1])/10))
-        flipkart_price = '$' + str(float(post_price.split('$')[1]) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+        amazon_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+        ebay_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+        alibaba_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+        fnac_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',','.'))/10))
+        flipkart_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
 
-        best_price = '$' + str(min(float(craigslist_price.split('$')[1]), float(amazon_price.split('$')[1]), float(ebay_price.split('$')[1]), float(alibaba_price.split('$')[1]), float(fnac_price.split('$')[1]), float(flipkart_price.split('$')[1])))
+        best_price = '$ ' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
 
         #prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
 
@@ -140,5 +144,6 @@ def results(request):
     stuff = {
         'search': search,
         'final_postings': final_postings,
+        'p_not_found' : p_not_found,
     }
     return render(request, 'price_check_app/results.html', stuff)

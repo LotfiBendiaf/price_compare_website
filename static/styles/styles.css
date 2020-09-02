@@ -34,11 +34,22 @@ ul{
     flex-direction: column;
 }
 
+a{
+    transition: width 1s, height 1s, transform 1s;
+}
+
+a:hover{
+    color: #039be5;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transform: scale(1.2);
+}
+
 body{
     
     background-image: 
-    linear-gradient(to bottom,rgb(255, 255, 255, 0), #ffffff),
-    url("/static/images/bg5.jpg");
+    linear-gradient(to bottom,rgb(255, 255, 255, 0), #ffffff00),
+    url("/static/images/bg6.jpg");
     object-fit: cover;
 }
 
@@ -58,14 +69,15 @@ body{
 #search-bar{
     border-radius: 7px 7px 0 0;
     padding-left: 10px;
+    background-color: rgba(248, 248, 255, 0.6);
 }
 
 #search-bar::placeholder{
-    color: darkolivegreen;
+    color: var(--mainText);
 }
 
 .waves-light :hover{
-    background-color: rgb(197, 255, 238);
+    background-color: #c5ffee;
     color: #24292e;
     
 }
@@ -96,6 +108,17 @@ body{
     width: fit-content;
 }
 
+.card-image{
+    -webkit-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+	-moz-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+    box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+    transition: width 1s, height 1s, transform 1s;
+}
+
+.card-image:hover{
+    transform: scale(1.1);
+}
+
 .price-wrapper{
     display: grid;
 	grid-template-columns: repeat(auto-fit, 320px);
@@ -109,23 +132,41 @@ body{
 
 .price-component{
     color: darkorange;
+    transition: width 1s, height 1s, transform 1s;
 }
 
 .price-component:hover{
-    color: rgb(235, 221, 37);
+    color: gold;
+    transform: scale(1.1);
 }
 
-.best-price{
+.best-price-image{
     font-weight: bold;
     justify-content: center;
     align-content: center;
     height: 100px;
     width: 100px;
+    -webkit-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+	-moz-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+    box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+    border-radius: 50%;
+}
+
+#best-price{
+    font-weight: bold; 
+    margin: 0; font-size: 40px; 
+    color: seagreen;
+    transition: width 1s, height 1s, transform 1s;
+}
+
+#best-price:hover{
+    color: gold;
+    transform: scale(1.4);
 }
 
 .icon-website{
 
-    width: 65px;
+    width: 60px;
     height: 30px;
     background-size: auto;
     margin: 3px 50px 3px 0 ;
@@ -154,6 +195,14 @@ body{
     border-radius: 15px;
     padding: 30px;
 
+}
+
+#column-desc{
+    transition: width 1s, height 1s, transform 1s;
+}
+
+#column-desc:hover{
+    transform: scale(1.2);
 }
 
 @media screen and (max-width : 600px){
