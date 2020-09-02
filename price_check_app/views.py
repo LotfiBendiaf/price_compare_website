@@ -2,7 +2,6 @@
 import requests
 import random
 from math import ceil
-from varname import nameof
 from requests.compat import quote_plus
 from django.shortcuts import render
 from bs4 import BeautifulSoup
@@ -36,9 +35,15 @@ def results(request):
     search = request.POST.get('search')
     models.Search.objects.create(search=search)
 
+    #Urls
+    final_amazon_url = AMAZON_URL.format(quote_plus(search))
+    final_ebay_url = EBAY_URL.format(quote_plus(search))
+    final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
+    final_fnac_url = FNAC_URL.format(quote_plus(search))
+    final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
     #Amazon Data
     #amazon_postings = []
-    final_amazon_url = AMAZON_URL.format(quote_plus(search))
+    """final_amazon_url = AMAZON_URL.format(quote_plus(search))
     amazon_page = requests.get(final_amazon_url, headers=headers)
     amazon_data = amazon_page.text
     amazon_soup = BeautifulSoup(amazon_data, features='html.parser')
@@ -53,7 +58,7 @@ def results(request):
     #ebay_post = ebay_soup.find_all('span', {'class': 's-item__price'})
 
     #Alibaba Data
-    #flipkart_postings = []
+    #alibaba_postings = []
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
     alibaba_page = requests.get(final_alibaba_url, headers=headers)
     alibaba_data = alibaba_page.text
@@ -61,7 +66,7 @@ def results(request):
     #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})
 
     #Fnac Data
-    #flipkart_postings = []
+    #fnac_postings = []
     final_fnac_url = FNAC_URL.format(quote_plus(search))
     fnac_page = requests.get(final_fnac_url, headers=headers)
     fnac_data = fnac_page.text
@@ -74,19 +79,18 @@ def results(request):
     flipkart_page = requests.get(final_flipkart_url, headers=headers)
     flipkart_data = flipkart_page.text
     flipkart_soup = BeautifulSoup(flipkart_data, features='html.parser')
-    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})
+    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})"""
 
     #Final Data
     final_postings = []
-    final_craigslist_url = BASE_URL.format(quote_plus(search))
-    print(final_craigslist_url)
-    response = requests.get(final_craigslist_url, headers=headers)
+    final_url = BASE_URL.format(quote_plus(search))
+    response = requests.get(final_url, headers=headers)
     data = response.text
     soup = BeautifulSoup(data, features='html.parser')
     post_listings = soup.find_all('li', {'class': 'result-row'})
 
     #URL List
-    urls_list = [final_craigslist_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url]
+    #urls_list = [final_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url]
 
     #Data Process
     for post in post_listings[:75]:
@@ -104,8 +108,7 @@ def results(request):
             post_image_url = BASE_IMAGE_URL.format(post_image_id)
 
         else:
-            post_image_url = "https://piotrkowalski.pw/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png"
-
+            post_image_url = "https://ultravires.ca/wp/wp-content/uploads/2018/03/Then-and-Now_-no-image-found.jpg"
         craigslist_price = '$' + str(float(post_price.split('$')[1]))
 
         #Exceptions
@@ -126,16 +129,14 @@ def results(request):
 
         best_price = '$' + str(min(float(craigslist_price.split('$')[1]), float(amazon_price.split('$')[1]), float(ebay_price.split('$')[1]), float(alibaba_price.split('$')[1]), float(fnac_price.split('$')[1]), float(flipkart_price.split('$')[1])))
 
-        prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
+        #prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
 
         final_postings.append(
             (post_titles, post_url, 
             craigslist_price, amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price,
             post_image_url, best_price,
-            final_craigslist_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url)
-            
+            final_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url)
             )
-
     stuff = {
         'search': search,
         'final_postings': final_postings,
