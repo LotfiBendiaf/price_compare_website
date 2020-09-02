@@ -194,6 +194,9 @@ body{
     width: auto;
     border-radius: 15px;
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -203,6 +206,16 @@ body{
 
 #column-desc:hover{
     transform: scale(1.2);
+}
+
+.footer-line{
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: auto;
+    width: 20%;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 @media screen and (max-width : 600px){
