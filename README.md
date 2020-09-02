@@ -28,8 +28,9 @@ pip freeze > requirements.txt
 heroku login
 # create new app if one doesn't yet exist
 heroku create
-# create a new postgres database for your app heroku addons:create heroku-postgresql:hobby-dev
-#heroku master
+# create a new postgres database for your app 
+heroku addons:create heroku-postgresql:hobby-dev
+# heroku master
 git push heroku master
 # migrate your database to the heroku app
 heroku run python manage.py migrate
