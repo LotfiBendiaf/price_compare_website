@@ -113,7 +113,7 @@ def results(request):
         else:
             post_image_url = "https://ultravires.ca/wp/wp-content/uploads/2018/03/Then-and-Now_-no-image-found.jpg"
 
-        craigslist_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')))
+        craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
 
         #Exceptions
         if post_price.split('$')[1] == '0':
@@ -121,17 +121,17 @@ def results(request):
 
         #Retrieve prices
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        amazon_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        amazon_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        ebay_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        ebay_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        alibaba_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        alibaba_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        fnac_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        fnac_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',','.'))/10))
-        flipkart_price = '$ ' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+        flipkart_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
 
-        best_price = '$ ' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
+        best_price = '$' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
 
         #prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
 

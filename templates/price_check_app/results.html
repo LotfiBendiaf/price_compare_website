@@ -11,17 +11,29 @@
 </div>
 
 <!--Results Section-->
-<div class="row">
+<div>
     {% for post in final_postings %}
     <!--Post Section-->
     <div id="post-section" class="col s12 m7">
-        <h4 class="header">{{ post.0 }}</h4>
+        <h4 class="header" style="padding: 10px;">{{ post.0 }}</h4>
         <div id="post" class="card horizontal">
-            <div class="card-image" style="margin: 1px;">
-                <img src="{{ post.8 }}">
+            <div class="card-image" style="transition: width 1s, height 1s, transform 1s;">
+                <img src="{{ post.8 }}" style="
+                -webkit-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+                -moz-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+                box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
+                border-radius: 10px;
+                display: block;
+                height: 90%;
+                width: 90%;
+                margin: auto;
+                margin: 15px;">
             </div>
             <div class="card-stacked">
-                <li style="border-bottom: 1px solid rgb(48, 18, 36); margin-left: 10px; margin-right: 10px;">
+                <div>
+                    <img class="card-image-top" src="{{ post.8 }}">
+                </div>
+                <li class="post-title">
                     <p style="font-weight: bold; color: #4b5156; padding-left: 10px;">
                         Prices for :
                     <p style="font-weight: bold; color: seagreen; padding-left: 7px;">{{ post.0 }}</p>
@@ -29,7 +41,7 @@
                 </li>
                 <!--Prices section-->
                 <div class="prices-section">
-                    <div style="padding-left: 10px; padding-right: 10px;">
+                    <div class="prices-column">
                         <ul>
                             <a target="_blank" href="{{ post.11 }}">
                                 <li class="price-component"><img class="icon-website"
@@ -64,7 +76,7 @@
                         </ul>
                     </div>
                     <!--Best Price section-->
-                    <div style="padding-left: 10px; padding-right: 10px;">
+                    <div class="best-price-column">
                         <ul>
                             <li style="justify-content: center;">
                                 <img class="best-price-image" src="{% static "images/best_price_icon.png"%} "> </li>

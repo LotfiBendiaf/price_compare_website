@@ -63,12 +63,18 @@ body{
 
 .search-section{
     padding-top: 35px;
+    padding-left: 2px;
+    padding-right: 2px;
     padding-bottom: 15px;
 }
 
 #search-bar{
     border-radius: 7px 7px 0 0;
     padding-left: 10px;
+    display: block;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: rgba(248, 248, 255, 0.6);
 }
 
@@ -82,13 +88,18 @@ body{
     
 }
 
+.row{
+    align-content: center;
+    padding: 1px;
+}
+
 #result-section{
     scroll-margin-top: 0 auto;
 }
 
 #post-section{
     background-color: rgba(255, 255, 255, 0.6);
-    width: 100%;
+    width: auto;
     border-radius: 10px;
     margin: 15px;
 }
@@ -108,11 +119,25 @@ body{
     width: fit-content;
 }
 
-.card-image{
+.post-title{
+    border-bottom: 1px solid rgb(48, 18, 36); 
+    margin-left: 10px; 
+    margin-right: 10px;
+}
+
+.card-stacked{
+    display: block;
+    width: 90%;
+    padding-top: 7px ;
+    height: auto;
+    margin: auto;
+}
+
+.card-image-top{
     -webkit-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
 	-moz-box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
     box-shadow: 2px 3px 10px 2px rgba(39,37,74,1);
-    transition: width 1s, height 1s, transform 1s;
+
 }
 
 .card-image:hover{
@@ -126,8 +151,13 @@ body{
 
 .prices-section{
     display: flex;
+    padding: 5px;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.prices-column{
+    padding-left: 10px;
 }
 
 .price-component{
@@ -138,6 +168,12 @@ body{
 .price-component:hover{
     color: gold;
     transform: scale(1.1);
+}
+
+.best-price-column{
+    padding-left: 10px; 
+    padding-right: 10px;
+    vertical-align: top;
 }
 
 .best-price-image{
@@ -216,6 +252,11 @@ body{
     padding-right: 10px;
 
 }
+@media only screen and (min-width: 800px){
+    .card-image-top{
+        display: none;
+    }
+}
 
 @media only screen and (max-width: 800px){
     .nav-wrapper{
@@ -228,8 +269,8 @@ body{
     #nav-mobile{
         display: none;
     }
-    nav{
-        padding: 0;
+    .logo{
+        display: none;
     }
     #main-intro{
         transform: scale(0.7) ;
@@ -240,11 +281,64 @@ body{
     .form-button{
         text-align: center;
     }
+
+    #search-result{
+        transform: scale(0.6);
+    }
+    .header{
+       font-size: 16px;
+        padding: 5px;
+    }
+    .card-image-top{
+        display: block;
+        height: auto;
+        border-radius: 10px;
+        width: 90%;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .post-title{
+        font-size: 14px;
+    }
+
+    .icon-website{
+
+        width: 40px;
+        height: 20px;
+        background-size: auto;
+        margin: 3px 20px 3px 0 ;
+        object-fit: cover;
+    
+    }
+    .prices-column{
+        display: flex;
+        flex-direction: row;
+    }
+    .best-price-column{
+        display: block;
+        height: auto;
+        width: auto;
+        margin: auto;
+        transform: scale(0.7);
+    }
+    .card-image{
+        display: none;
+    }
+
     #footer-section{
         display: inline-flex;
         flex-direction: column;
     }
-    .icon-website{
-        transform: scale(0.7);
+}
+
+@media only screen and (max-width: 350px){
+    .best-price-column{
+        transform: scale(0.6);
+    }
+    .prices-column{
+        width: 100%;
+    }
+    .price-component{
+        display: inline-block;
     }
 }
