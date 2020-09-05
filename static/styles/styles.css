@@ -266,9 +266,6 @@ body{
         width: 100%;
         justify-content: center;
     }
-    #nav-mobile{
-        display: none;
-    }
     .logo{
         display: none;
     }

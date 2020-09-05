@@ -12,6 +12,9 @@ and will compare prices, display all prices and allows him to visit each link of
 
 * How to start
 
+- pip intall pipenv
+- pipenv shell
+
 - install django-static-sites in your python path or in your virtualenv path (pip install https://github.com/ciotto/django-static-sites/archive/master.zip)
 - create an empty optimized project by django-static-admin startproject PROJECT_NAME command
 - move to the PROJECT_NAME folder and create site by python manage.py startsite SITE_NAME command
@@ -34,8 +37,7 @@ heroku addons:create heroku-postgresql:hobby-dev
 git push heroku master
 # migrate your database to the heroku app
 heroku run python manage.py migrate
-# before you do this, make sure to add your SECRET_KEY to your env variables in
-your heroku app settings
+# before you do this, make sure to add your SECRET_KEY to your env variables in your heroku app settings
 git add.
 git commit -m "Ready to heroku this sucker in the face."
 git push heroku master
