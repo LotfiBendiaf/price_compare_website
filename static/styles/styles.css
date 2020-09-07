@@ -269,6 +269,9 @@ body{
     .logo{
         display: none;
     }
+.nav-mobile{
+	display: none;
+	}
     #main-intro{
         transform: scale(0.7) ;
     }
