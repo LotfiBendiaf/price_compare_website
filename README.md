@@ -34,9 +34,9 @@ enjoy it at http://127.0.0.1:8000
 # create a new postgres database for your app 
 - heroku addons:create heroku-postgresql:hobby-dev
 # heroku master
--git push heroku master
+- git push heroku master
 # migrate your database to the heroku app
-heroku run python manage.py migrate
+- heroku run python manage.py migrate
 # before you do this, make sure to add your SECRET_KEY to your env variables in your heroku app settings
 - git add.
 - git commit -m "Ready to heroku this sucker in the face."
