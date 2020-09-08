@@ -269,7 +269,7 @@ body{
     .logo{
         display: none;
     }
-.nav-mobile{
+#nav-mobile{
 	display: none;
 	}
     #main-intro{
