@@ -1,4 +1,4 @@
-* Project decription 'My Price Check'
+# Project decription 'My Price Check'
 
 My Price check is web application that allows the client to get the best price of what he looks for
 the application will give differents prices from the most famous websites like Amazon, ebay, Alibaba, ...
@@ -10,7 +10,7 @@ and will compare prices, display all prices and allows him to visit each link of
 
 * [Technical section]
 
-* How to start
+# How to start
 
 - pip intall pipenv
 - pipenv shell
@@ -23,21 +23,21 @@ and will compare prices, display all prices and allows him to visit each link of
 - start server python manage.py runserver
 enjoy it at http://127.0.0.1:8000
 
-* Hosting
-pip install gunicorn
-pip install django-heroku
-pip freeze > requirements.txt
+# Hosting
+- pip install gunicorn
+- pip install django-heroku
+- pip freeze > requirements.txt
 # login to your heroku
-heroku login
+- heroku login
 # create new app if one doesn't yet exist
-heroku create
+- heroku create
 # create a new postgres database for your app 
-heroku addons:create heroku-postgresql:hobby-dev
+- heroku addons:create heroku-postgresql:hobby-dev
 # heroku master
-git push heroku master
+-git push heroku master
 # migrate your database to the heroku app
 heroku run python manage.py migrate
 # before you do this, make sure to add your SECRET_KEY to your env variables in your heroku app settings
-git add.
-git commit -m "Ready to heroku this sucker in the face."
-git push heroku master
+- git add.
+- git commit -m "Ready to heroku this sucker in the face."
+- git push heroku master
