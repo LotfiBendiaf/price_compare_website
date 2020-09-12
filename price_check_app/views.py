@@ -36,7 +36,7 @@ def results(request):
     search = request.POST.get('search')
     models.Search.objects.create(search=search)
 
-    #Urls
+    """#Urls
     final_amazon_url = AMAZON_URL.format(quote_plus(search))
     final_ebay_url = EBAY_URL.format(quote_plus(search))
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
@@ -81,7 +81,7 @@ def results(request):
     flipkart_page = requests.get(final_flipkart_url, headers=headers)
     flipkart_data = flipkart_page.text
     flipkart_soup = BeautifulSoup(flipkart_data, features='html.parser')
-    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})
+    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})"""
 
     #Final Data
     final_postings = []
