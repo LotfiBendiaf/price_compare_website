@@ -1,6 +1,7 @@
 
 import requests
 import random
+import csv
 from math import ceil
 from requests.compat import quote_plus
 from django.shortcuts import render
@@ -44,7 +45,7 @@ def results(request):
     final_flipkart_url = FLIPKART_URL.format(quote_plus(search))
     #Amazon Data
     #amazon_postings = []
-    """final_amazon_url = AMAZON_URL.format(quote_plus(search))
+    final_amazon_url = AMAZON_URL.format(quote_plus(search))
     amazon_page = requests.get(final_amazon_url, headers=headers)
     amazon_data = amazon_page.text
     amazon_soup = BeautifulSoup(amazon_data, features='html.parser')
@@ -80,7 +81,7 @@ def results(request):
     flipkart_page = requests.get(final_flipkart_url, headers=headers)
     flipkart_data = flipkart_page.text
     flipkart_soup = BeautifulSoup(flipkart_data, features='html.parser')
-    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})"""
+    #flipkart_post = flipkart_soup.find_all('div', {'class': '_3liAhj'})
 
     #Final Data
     final_postings = []
@@ -141,6 +142,14 @@ def results(request):
             post_image_url, best_price,
             final_url, final_amazon_url, final_alibaba_url, final_ebay_url, final_fnac_url, final_flipkart_url)
             )
+        
+    # Writing results into csv file (root project)
+    """with open('results.csv', 'w', newline='') as file:
+        writer = csv.writer(file, delimiter='|')
+        writer.writerow(["Product title", "craigslist_price", "amazon_price", "ebay_price", "alibaba_price", "fnac_price", "flipkart_price", "best_price"])
+        for elt in final_postings:
+            writer.writerow([elt[0], elt[2], elt[3], elt[4], elt[5], elt[6], elt[7], elt[9]])"""
+            
     stuff = {
         'search': search,
         'final_postings': final_postings,
