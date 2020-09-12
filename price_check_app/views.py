@@ -119,25 +119,30 @@ def results(request):
         try:
             if post_price.split('$')[1] == '0':
                 post_price = '$1'
-        except:
-            post_price = '$1'
         
+            craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
 
-        craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
+            #Retrieve prices
+            delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+            amazon_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+            delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+            ebay_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+            delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+            alibaba_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+            delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+            fnac_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+            delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
+            flipkart_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
 
-        #Retrieve prices
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        amazon_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        ebay_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        alibaba_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        fnac_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
-        flipkart_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
+            best_price = '$' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
 
-        best_price = '$' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
+        except:
+            craigslist_price = "N/A" 
+            amazon_price = "N/A" 
+            ebay_price = "N/A"
+            alibaba_price = "N/A" 
+            fnac_price = "N/A" 
+            flipkart_price = "N/A"
 
         #prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
 
