@@ -120,7 +120,7 @@ def results(request):
             if post_price.split('$')[1] == '0':
                 post_price = '$1'
         except:
-            print("value error")
+            post_price = '$1'
         
 
         craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
