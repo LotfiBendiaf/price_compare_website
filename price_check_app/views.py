@@ -143,6 +143,7 @@ def results(request):
             alibaba_price = "N/A" 
             fnac_price = "N/A" 
             flipkart_price = "N/A"
+            best_price = "/"
 
         #prices_list = [amazon_price, ebay_price, alibaba_price, fnac_price, flipkart_price, craigslist_price]
 
