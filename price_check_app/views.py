@@ -36,13 +36,14 @@ def results(request):
     search = request.POST.get('search')
     models.Search.objects.create(search=search)
 
-    """#Urls
+    #Urls
     final_amazon_url = AMAZON_URL.format(quote_plus(search))
     final_ebay_url = EBAY_URL.format(quote_plus(search))
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
     final_fnac_url = FNAC_URL.format(quote_plus(search))
     final_alibaba_url = ALIBABA_URL.format(quote_plus(search))
     final_flipkart_url = FLIPKART_URL.format(quote_plus(search))
+    """
     #Amazon Data
     #amazon_postings = []
     final_amazon_url = AMAZON_URL.format(quote_plus(search))
