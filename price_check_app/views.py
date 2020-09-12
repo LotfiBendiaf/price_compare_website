@@ -129,7 +129,7 @@ def results(request):
         alibaba_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
         fnac_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
-        delta_price = int(ceil(float(post_price.split('$')[1].replace(',','.'))/10))
+        delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
         flipkart_price = '$' + str(float(post_price.split('$')[1].replace(',','')) + random.randrange(-delta_price, delta_price))
 
         best_price = '$' + str(min(float(craigslist_price.split('$')[1].replace(',','')), float(amazon_price.split('$')[1].replace(',','')), float(ebay_price.split('$')[1].replace(',','')), float(alibaba_price.split('$')[1].replace(',','')), float(fnac_price.split('$')[1].replace(',','')), float(flipkart_price.split('$')[1].replace(',',''))))
