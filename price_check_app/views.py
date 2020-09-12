@@ -115,11 +115,11 @@ def results(request):
         else:
             post_image_url = "https://ultravires.ca/wp/wp-content/uploads/2018/03/Then-and-Now_-no-image-found.jpg"
 
-        craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
-
         #Exceptions
         if post_price.split('$')[1] == '0':
             post_price = '$1'
+
+        craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
 
         #Retrieve prices
         delta_price = int(ceil(float(post_price.split('$')[1].replace(',',''))/10))
