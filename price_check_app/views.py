@@ -116,7 +116,7 @@ def results(request):
             post_image_url = "https://ultravires.ca/wp/wp-content/uploads/2018/03/Then-and-Now_-no-image-found.jpg"
 
         #Exceptions
-        if post_price.split('$')[1] == '0':
+        if post_price.split('$')[1] == '0' or len(post_price) == 1:
             post_price = '$1'
 
         craigslist_price = '$' + str(float(post_price.split('$')[1].replace(',','')))
